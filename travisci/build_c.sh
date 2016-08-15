@@ -1,6 +1,7 @@
 #!/bin/bash
 
 # HTSlib first
+echo htslib
 cd htslib
 if [ ! -f libhts.a ]; then
   make
@@ -8,6 +9,7 @@ fi
 cd $DEPS
 
 #Bio::DB::HTS
+echo "Bio::DB::HTS"
 cd Bio-HTS
 perl Build.PL
 ./Build
@@ -17,6 +19,7 @@ cd $DEPS
 
 
 # kent src
+echo "kent src"
 export MACHTYPE=$(uname -m)
 export MYSQLINC=`mysql_config --include | sed -e 's/^-I//g'`
 export MYSQLLIBS=`mysql_config --libs`
