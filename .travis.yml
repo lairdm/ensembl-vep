@@ -64,6 +64,7 @@ install:
   - $CWD/travisci/build_c.sh
   - cd $CWD
   - find /home/travis -name BigFile.so
+  - ls -l /home/travis/dependencies/kent/src/lib/x86_64/jkweb.a
   - cpanm --quiet --installdeps --with-recommends --notest --cpanfile ensembl/cpanfile .
   - cpanm --verbose Bio::DB::BigFile
   - cpanm --installdeps --notest .
