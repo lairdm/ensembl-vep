@@ -1,11 +1,11 @@
 language: "perl"
 
 perl:
-  - "5.8"
-  - "5.10"
+#  - "5.8"
+#  - "5.10"
   - "5.14"
-  - "5.18"
-  - "5.22"
+#  - "5.18"
+#  - "5.22"
 
 env:
   - COVERALLS=true  DB=mysql
@@ -55,13 +55,15 @@ install:
   - export MACHTYPE=$(uname -m)
   - export CFLAGS="-fPIC"
   - cd $DEPS
+  - echo `pwd`
   - $CWD/travisci/build_c.sh
   - cd $CWD
   - cpanm --quiet --installdeps --with-recommends --notest --cpanfile ensembl/cpanfile .
+  - cpanm --verbose Bio::DB::BigFile
   - cpanm --installdeps --notest .
   - cpanm --quiet -n Devel::Cover::Report::Coveralls
   - cp travisci/MultiTestDB.conf.travisci  t/MultiTestDB.conf
-
+  - ldd /home/travis/perl5/perlbrew/perls/5.14/lib/site_perl/5.14.3/x86_64-linux/auto/Bio/DB/BigFile/BigFile.so
 
 script: "./travisci/harness.sh"
 
