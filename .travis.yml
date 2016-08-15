@@ -56,7 +56,7 @@ install:
   - export CFLAGS="-fPIC"
   - echo `ls ~`
   - echo `ls $DEPS`
-  - export PERL5LIB=$DEPS/bioperl-live-bioperl-release-1-2-3:$PERL5LIB
+  - export PERL5LIB=$DEPS/bioperl-live-release-1-6-924:$PERL5LIB
   - cd $DEPS
   - echo `pwd`
   - $CWD/travisci/build_c.sh
