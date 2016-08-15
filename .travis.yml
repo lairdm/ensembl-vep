@@ -62,7 +62,7 @@ install:
   - echo `pwd`
   - $CWD/travisci/build_c.sh
   - cd $CWD
-  - ldd /home/travis/perl5/perlbrew/perls/5.14/lib/site_perl/5.14.3/x86_64-linux/auto/Bio/DB/BigFile/BigFile.so
+  - find /home/travis -name BigFile.so
   - cpanm --quiet --installdeps --with-recommends --notest --cpanfile ensembl/cpanfile .
   - cpanm --verbose Bio::DB::BigFile
   - cpanm --installdeps --notest .
