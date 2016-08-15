@@ -22,6 +22,7 @@ addons:
   apt:
     packages:
       - unzip
+      - ldd
       - mysql-server-5.5
       - apache2
       - libmysqlclient-dev
